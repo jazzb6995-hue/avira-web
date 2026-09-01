@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── AVIRA Brand Design Tokens ─────────────────────────────────────────── */
+
+@theme {
+  /* Brand Palette */
+  --color-plum:           #54283C;
+  --color-plum-light:     #6b3450;
+  --color-plum-dark:      #3c1d2b;
+  --color-ivory:          #FBF7F2;
+  --color-ivory-dark:     #F5EFE7;
+  --color-cream:          #F9F4EC;
+  --color-blush:          #F0DDD5;
+  --color-blush-light:    #FAF0ED;
+  --color-champagne:      #E8D5B7;
+  --color-warm-grey:      #9B8F89;
+  --color-warm-grey-light:#C9C0BB;
+  --color-charcoal:       #2C2521;
+  --color-charcoal-light: #4A3F3B;
+  --color-rose-gold:      #C9956C;
+  --color-rose-gold-light:#DEB896;
+
+  /* Semantic */
+  --color-bg:             var(--color-ivory);
+  --color-surface:        #FFFFFF;
+  --color-border:         #E8E0D8;
+  --color-text:           var(--color-charcoal);
+  --color-text-muted:     var(--color-warm-grey);
+  --color-accent:         var(--color-plum);
+
+  /* Typography */
+  --font-display:         'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans:            'DM Sans', 'Inter', system-ui, sans-serif;
+  --font-mono:            'JetBrains Mono', monospace;
+
+  /* Spacing / Layout */
+  --container-max:        1400px;
+
+  /* Shadows */
+  --shadow-card:          0 2px 12px 0 rgba(84, 40, 60, 0.06);
+  --shadow-hover:         0 8px 32px 0 rgba(84, 40, 60, 0.12);
+  --shadow-modal:         0 24px 64px 0 rgba(44, 37, 33, 0.18);
+
+  /* Transitions */
+  --ease-avira:           cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:        150ms;
+  --duration-base:        250ms;
+  --duration-slow:        400ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Base Styles ──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* ─── Typography ───────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+}
+
+/* ─── AVIRA Motif (four-petal SVG divider) ─────────────────────────────────── */
+
+.motif-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-plum);
+  opacity: 0.4;
+}
+
+.motif-divider::before,
+.motif-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+/* ─── Focus Visible ────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ─── Selection ────────────────────────────────────────────────────────────── */
+
+::selection {
+  background-color: rgba(84, 40, 60, 0.15);
+  color: var(--color-charcoal);
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-warm-grey-light); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-warm-grey); }
+
+/* ─── Reduced Motion ───────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Admin Utility Classes ────────────────────────────────────────────────── */
+
+.label-admin {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-warm-grey);
+  margin-bottom: 0.35rem;
+}
+
+.input-admin {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.625rem;
+  font-size: 0.875rem;
+  background: transparent;
+  color: var(--color-charcoal);
+}
+
+.input-admin:focus {
+  outline: none;
+  border-color: var(--color-plum);
+}
+
+/* ─── Print ────────────────────────────────────────────────────────────────── */
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
 }
