@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -43,7 +43,7 @@ export function ProductInfo({ product, avgRating, reviewCount }: ProductInfoProp
   const handleAddToCart = async () => {
     if (isOutOfStock) return;
     setAdding(true);
-    const firstMedia = selectedVariant?.media[0]?.url ?? product.media[0]?.url ?? "/placeholder-product.jpg";
+    const firstMedia = selectedVariant?.media[0]?.url ?? product.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop";
     addItem({
       id: `${product.id}-${selectedVariantId ?? "default"}`,
       productId: product.id,

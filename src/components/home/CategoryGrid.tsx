@@ -2,11 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const CATEGORIES = [
-  { label: "Earrings", href: "/category/earrings", imageUrl: "/categories/earrings.jpg", tagline: "From studs to drops" },
-  { label: "Bracelets", href: "/category/bracelets", imageUrl: "/categories/bracelets.jpg", tagline: "Stack or solo" },
-  { label: "Necklaces", href: "/category/necklaces", imageUrl: "/categories/necklaces.jpg", tagline: "Delicate layers" },
-  { label: "Rings", href: "/category/rings", imageUrl: "/categories/rings.jpg", tagline: "Little statements" },
-  { label: "Sets", href: "/category/sets", imageUrl: "/categories/sets.jpg", tagline: "Perfectly paired" },
+  { label: "Earrings", href: "/category/earrings", imageUrl: "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=500&q=80&auto=format&fit=crop", tagline: "From studs to drops" },
+  { label: "Bracelets", href: "/category/bracelets", imageUrl: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=500&q=80&auto=format&fit=crop", tagline: "Stack or solo" },
+  { label: "Necklaces", href: "/category/necklaces", imageUrl: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&q=80&auto=format&fit=crop", tagline: "Delicate layers" },
+  { label: "Rings", href: "/category/rings", imageUrl: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=500&q=80&auto=format&fit=crop", tagline: "Little statements" },
+  { label: "Sets", href: "/category/sets", imageUrl: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&q=80&auto=format&fit=crop", tagline: "Perfectly paired" },
 ];
 
 export function CategoryGrid() {
@@ -28,8 +28,13 @@ export function CategoryGrid() {
             href={cat.href}
             className="group relative overflow-hidden bg-[var(--color-cream)] aspect-[3/4] md:aspect-[2/3]"
           >
-            {/* Placeholder gradient, replace with real image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-blush)] to-[var(--color-champagne)] group-hover:scale-105 transition-transform duration-500" />
+            <Image
+              src={cat.imageUrl}
+              alt={cat.label}
+              fill
+              sizes="(max-width: 768px) 50vw, 20vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
               <p className="font-[var(--font-display)] text-lg leading-tight">{cat.label}</p>

@@ -88,7 +88,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     slug: p.slug,
     title: p.title,
     emotionalName: p.emotionalName,
-    imageUrl: p.media[0]?.url ?? "/placeholder-product.jpg",
+    imageUrl: p.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
     hoverImageUrl: p.media[1]?.url ?? null,
     mrp: Number(p.mrp),
     salePrice: p.salePrice ? Number(p.salePrice) : null,

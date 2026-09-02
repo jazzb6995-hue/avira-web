@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 import { db } from "@/lib/db";
@@ -24,7 +24,7 @@ export async function BestSellersSection() {
         slug: p.slug,
         title: p.title,
         emotionalName: p.emotionalName,
-        imageUrl: p.media[0]?.url ?? "/placeholder-product.jpg",
+        imageUrl: p.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
         hoverImageUrl: p.media[1]?.url ?? null,
         mrp: Number(p.mrp),
         salePrice: p.salePrice ? Number(p.salePrice) : null,
@@ -65,15 +65,25 @@ export async function BestSellersSection() {
   );
 }
 
-const PLACEHOLDER_BEST_SELLERS = Array.from({ length: 4 }, (_, i) => ({
-  id: `bs-${i}`,
-  slug: `bestseller-${i + 1}`,
-  title: ["Pearl Hoop Earrings", "Twisted Gold Bangle", "Delicate Layered Chain", "Statement Ring"][i],
-  emotionalName: "Timeless",
-  imageUrl: `/placeholder-product.jpg`,
-  hoverImageUrl: null,
-  mrp: [1199, 1499, 1299, 899][i],
-  salePrice: null,
-  isNewArrival: false,
-  isBestSeller: true,
-}));
+const PLACEHOLDER_BEST_SELLERS = [
+  {
+    id: "bs-0", slug: "bestseller-1", title: "Pearl Hoop Earrings", emotionalName: "Timeless",
+    imageUrl: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80&auto=format&fit=crop",
+    hoverImageUrl: null, mrp: 1199, salePrice: null, isNewArrival: false, isBestSeller: true,
+  },
+  {
+    id: "bs-1", slug: "bestseller-2", title: "Twisted Gold Bangle", emotionalName: "Timeless",
+    imageUrl: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80&auto=format&fit=crop",
+    hoverImageUrl: null, mrp: 1499, salePrice: null, isNewArrival: false, isBestSeller: true,
+  },
+  {
+    id: "bs-2", slug: "bestseller-3", title: "Delicate Layered Chain", emotionalName: "Timeless",
+    imageUrl: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
+    hoverImageUrl: null, mrp: 1299, salePrice: null, isNewArrival: false, isBestSeller: true,
+  },
+  {
+    id: "bs-3", slug: "bestseller-4", title: "Statement Ring", emotionalName: "Timeless",
+    imageUrl: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=80&auto=format&fit=crop",
+    hoverImageUrl: null, mrp: 899, salePrice: null, isNewArrival: false, isBestSeller: true,
+  },
+];

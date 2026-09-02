@@ -164,7 +164,7 @@ export default async function ProductPage({ params }: Props) {
                 slug: w.target.slug,
                 title: w.target.title,
                 emotionalName: w.target.emotionalName,
-                imageUrl: w.target.media[0]?.url ?? "/placeholder-product.jpg",
+                imageUrl: w.target.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
                 mrp: Number(w.target.mrp),
                 salePrice: w.target.salePrice ? Number(w.target.salePrice) : null,
                 isNewArrival: w.target.isNewArrival,

@@ -51,7 +51,7 @@ export default async function CollectionPage({ params }: Props) {
         slug: pc.product.slug,
         title: pc.product.title,
         emotionalName: pc.product.emotionalName,
-        imageUrl: pc.product.media[0]?.url ?? "/placeholder-product.jpg",
+        imageUrl: pc.product.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
         hoverImageUrl: pc.product.media[1]?.url ?? null,
         mrp: Number(pc.product.mrp),
         salePrice: pc.product.salePrice ? Number(pc.product.salePrice) : null,

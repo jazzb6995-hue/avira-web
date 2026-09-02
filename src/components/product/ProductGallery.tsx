@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -52,7 +52,7 @@ export function ProductGallery({ media, variants, selectedVariantId }: Props) {
         ) : (
           <>
             <Image
-              src={current?.url ?? "/placeholder-product.jpg"}
+              src={current?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop"}
               alt={current?.altText ?? "Product"}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

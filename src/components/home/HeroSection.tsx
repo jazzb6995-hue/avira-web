@@ -1,12 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
     <section className="relative w-full min-h-[90dvh] flex items-center overflow-hidden bg-[var(--color-plum-dark)]">
-      {/* Background - editorial gradient, real image mounted via CSS var or next/image */}
+      {/* Background image */}
+      <Image
+        src="https://images.unsplash.com/photo-1573408301185-9519f94c5eb8?w=1600&q=80&auto=format&fit=crop"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        aria-hidden="true"
+      />
+      {/* Dark overlay for text legibility */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-[#3c1d2b] via-[#54283C] to-[#2c1520]"
+        className="absolute inset-0 bg-[#3c1d2b]/70"
         aria-hidden="true"
       />
 

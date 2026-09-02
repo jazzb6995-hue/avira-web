@@ -37,7 +37,7 @@ export default async function WishlistPage() {
         slug: i.product.slug,
         title: i.product.title,
         emotionalName: i.product.emotionalName,
-        imageUrl: i.product.media[0]?.url ?? "/placeholder-product.jpg",
+        imageUrl: i.product.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
         hoverImageUrl: i.product.media[1]?.url ?? null,
         mrp: Number(i.product.mrp),
         salePrice: i.product.salePrice ? Number(i.product.salePrice) : null,

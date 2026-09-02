@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 import { db } from "@/lib/db";
@@ -27,7 +27,7 @@ export async function NewArrivalsSection() {
           slug: p.slug,
           title: p.title,
           emotionalName: p.emotionalName,
-          imageUrl: p.media[0]?.url ?? "/placeholder-product.jpg",
+          imageUrl: p.media[0]?.url ?? "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
           hoverImageUrl: p.media[1]?.url ?? null,
           mrp: Number(p.mrp),
           salePrice: p.salePrice ? Number(p.salePrice) : null,
@@ -66,12 +66,23 @@ export async function NewArrivalsSection() {
   );
 }
 
+const PRODUCT_IMAGES = [
+  "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1573408301185-9519f94c5eb8?w=600&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=600&q=80&auto=format&fit=crop",
+];
+
 const PLACEHOLDER_PRODUCTS = Array.from({ length: 8 }, (_, i) => ({
   id: `placeholder-${i}`,
   slug: `product-${i + 1}`,
   title: ["Meher Earrings", "Lila Bracelet", "Zara Necklace", "Aria Ring", "Pearl Drop Studs", "Gold Huggies", "Layered Chain", "Charm Bangle"][i],
   emotionalName: "A little colour for your everyday",
-  imageUrl: `/placeholder-product.jpg`,
+  imageUrl: PRODUCT_IMAGES[i],
   hoverImageUrl: null,
   mrp: [999, 1299, 1499, 799, 899, 1099, 1599, 699][i],
   salePrice: i % 3 === 0 ? [799, null, 1199, null, 699, null, 1299, null][i] : null,
