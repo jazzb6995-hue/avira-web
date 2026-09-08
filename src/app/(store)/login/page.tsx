@@ -31,10 +31,16 @@ function LoginForm() {
         redirect: false,
       });
       if (res?.error) {
-        setError("Invalid email or password.");
+        setError(
+          res.error === "Configuration"
+            ? "Sign-in is not available yet. The store is launching soon."
+            : "Incorrect email or password. Please try again."
+        );
       } else {
         router.push(callbackUrl);
       }
+    } catch {
+      setError("Unable to connect. Please try again later.");
     } finally {
       setLoading(false);
     }

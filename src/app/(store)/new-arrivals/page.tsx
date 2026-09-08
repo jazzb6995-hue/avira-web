@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "New Arrivals | AVIRA",
-  description: "The latest additions to AVIRA — fresh styles, little beauties, just in.",
+  description: "The latest additions to AVIRA, fresh styles, little beauties, just in.",
   alternates: { canonical: "/new-arrivals" },
 };
 
@@ -36,7 +36,7 @@ export default async function NewArrivalsPage() {
         <p className="text-[var(--color-warm-grey)] text-sm mt-2">Fresh styles, just in</p>
       </div>
       {products.length === 0 ? (
-        <p className="text-center text-[var(--color-warm-grey)] py-20">Coming soon — check back shortly.</p>
+        <p className="text-center text-[var(--color-warm-grey)] py-20">Coming soon, check back shortly.</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {products.map((product, i) => (

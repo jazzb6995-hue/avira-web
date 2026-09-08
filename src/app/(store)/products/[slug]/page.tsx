@@ -16,34 +16,38 @@ interface Props {
 }
 
 async function getProduct(slug: string) {
-  return db.product.findFirst({
-    where: { slug, status: "PUBLISHED" },
-    include: {
-      category: true,
-      collections: { include: { collection: true } },
-      media: { orderBy: { sortOrder: "asc" } },
-      variants: {
-        where: { status: "PUBLISHED" },
-        include: { media: { orderBy: { sortOrder: "asc" } } },
-        orderBy: { colourName: "asc" },
-      },
-      inventory: true,
-      reviews: {
-        where: { status: "APPROVED" },
-        take: 6,
-        orderBy: { createdAt: "desc" },
-        include: { user: { select: { name: true } } },
-      },
-      wearItWith: {
-        include: {
-          target: {
-            include: { media: { take: 1, orderBy: { sortOrder: "asc" } } },
+  try {
+    return await db.product.findFirst({
+      where: { slug, status: "PUBLISHED" },
+      include: {
+        category: true,
+        collections: { include: { collection: true } },
+        media: { orderBy: { sortOrder: "asc" } },
+        variants: {
+          where: { status: "PUBLISHED" },
+          include: { media: { orderBy: { sortOrder: "asc" } } },
+          orderBy: { colourName: "asc" },
+        },
+        inventory: true,
+        reviews: {
+          where: { status: "APPROVED" },
+          take: 6,
+          orderBy: { createdAt: "desc" },
+          include: { user: { select: { name: true } } },
+        },
+        wearItWith: {
+          include: {
+            target: {
+              include: { media: { take: 1, orderBy: { sortOrder: "asc" } } },
+            },
           },
         },
+        tags: { include: { tag: true } },
       },
-      tags: { include: { tag: true } },
-    },
-  });
+    });
+  } catch {
+    return null;
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

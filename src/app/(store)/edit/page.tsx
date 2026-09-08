@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "AVIRA Edit | AVIRA",
-  description: "Our curated selection — the pieces our team loves most right now.",
+  description: "Our curated selection, the pieces our team loves most right now.",
   alternates: { canonical: "/edit" },
 };
 
@@ -41,12 +41,12 @@ export default async function AvirEdit() {
         <MotifDivider className="mb-6 max-w-xs mx-auto" />
         <h1 className="font-[var(--font-display)] text-3xl md:text-5xl">The AVIRA Edit</h1>
         <p className="text-[var(--color-warm-grey)] text-sm mt-3 max-w-md mx-auto">
-          Our team's current obsessions. Pieces we'd gift, wear, and treasure — curated for you.
+          Our team's current obsessions. Pieces we'd gift, wear, and treasure, curated for you.
         </p>
       </div>
 
       {mapped.length === 0 ? (
-        <p className="text-center text-[var(--color-warm-grey)] py-16">Coming soon — our edit is being curated.</p>
+        <p className="text-center text-[var(--color-warm-grey)] py-16">Coming soon, our edit is being curated.</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {mapped.map((product, i) => (

@@ -1,4 +1,4 @@
-import { MotifDivider } from "@/components/ui/AviraMotif";
+﻿import { MotifDivider } from "@/components/ui/AviraMotif";
 import { Star } from "lucide-react";
 import { db } from "@/lib/db";
 
@@ -71,7 +71,7 @@ function ReviewCard({ review }: { review: any }) {
 }
 
 const PLACEHOLDER_REVIEWS = [
-  { rating: 5, title: "Absolutely beautiful!", body: "I ordered the pearl drop earrings and they are stunning. The packaging was so thoughtful — felt like opening a gift. Will definitely order again.", guestName: "Priya S.", verifiedPurchase: true },
+  { rating: 5, title: "Absolutely beautiful!", body: "I ordered the pearl drop earrings and they are stunning. The packaging was so thoughtful, felt like opening a gift. Will definitely order again.", guestName: "Priya S.", verifiedPurchase: true },
   { rating: 5, title: "Perfect everyday jewellery", body: "Finally found jewellery that doesn't turn my skin green! AVIRA pieces are so delicate and beautiful. The quality is amazing for the price.", guestName: "Ananya M.", verifiedPurchase: true },
   { rating: 5, title: "Gorgeous gift packaging", body: "Bought this as a birthday gift. The packaging alone made my friend squeal with joy. The necklace is even more beautiful in person.", guestName: "Kavya R.", verifiedPurchase: true },
 ];

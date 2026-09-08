@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -43,11 +43,6 @@ export function Header() {
 
   return (
     <>
-      {/* Announcement Bar */}
-      <div className="bg-[var(--color-plum)] text-white text-center text-xs tracking-widest py-2 px-4">
-        FREE SHIPPING ON ORDERS ABOVE ₹500
-      </div>
-
       <header
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
@@ -81,7 +76,7 @@ export function Header() {
             <Link
               href="/"
               className="flex-shrink-0 mx-8"
-              aria-label="AVIRA — Home"
+              aria-label="AVIRA, Home"
             >
               <Image
                 src="/logo.png"
@@ -156,7 +151,7 @@ export function Header() {
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
 
-            <Link href="/" aria-label="AVIRA — Home" className="absolute left-1/2 -translate-x-1/2">
+            <Link href="/" aria-label="AVIRA, Home" className="absolute left-1/2 -translate-x-1/2">
               <Image
                 src="/logo.png"
                 alt="AVIRA"

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
@@ -139,7 +139,7 @@ export function ExitIntentPopup() {
           ) : (
             <>
               <h2 className="font-[var(--font-display)] text-2xl md:text-3xl mb-2 leading-snug">
-                Wait — a little gift for you
+                Wait, a little gift for you
               </h2>
               <p className="text-sm text-[var(--color-warm-grey)] mb-1">
                 Get <span className="font-semibold text-[var(--color-charcoal)]">10% off your first order</span> when you join our world.

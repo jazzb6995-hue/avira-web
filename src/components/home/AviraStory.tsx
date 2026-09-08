@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export function AviraStory() {
   return (
@@ -27,12 +27,12 @@ export function AviraStory() {
             Beautiful doesn't have to wait for an occasion.
           </h2>
           <p className="text-[var(--color-warm-grey)] text-sm leading-relaxed mb-4">
-            AVIRA was born from a simple belief — that beautiful, thoughtfully designed jewellery
+            AVIRA was born from a simple belief, that beautiful, thoughtfully designed jewellery
             should be part of everyday life. Not reserved for special occasions. Not saved for
             someone else's approval.
           </p>
           <p className="text-[var(--color-warm-grey)] text-sm leading-relaxed mb-8">
-            Each piece is designed to feel like a little celebration — for the moments that matter
+            Each piece is designed to feel like a little celebration, for the moments that matter
             and the ordinary Tuesday afternoons that deserve to feel special too.
           </p>
           <Link

@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Best Sellers | AVIRA",
-  description: "The pieces everyone loves — AVIRA's most-loved jewellery.",
+  description: "The pieces everyone loves, AVIRA's most-loved jewellery.",
   alternates: { canonical: "/best-sellers" },
 };
 
@@ -36,7 +36,7 @@ export default async function BestSellersPage() {
         <p className="text-[var(--color-warm-grey)] text-sm mt-2">The pieces everyone loves</p>
       </div>
       {products.length === 0 ? (
-        <p className="text-center text-[var(--color-warm-grey)] py-20">Coming soon — check back shortly.</p>
+        <p className="text-center text-[var(--color-warm-grey)] py-20">Coming soon, check back shortly.</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {products.map((product, i) => (

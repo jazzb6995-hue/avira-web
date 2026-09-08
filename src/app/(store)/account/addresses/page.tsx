@@ -38,7 +38,7 @@ export default async function AddressesPage() {
               {addr.isDefault && <span className="text-[10px] uppercase tracking-widest text-[var(--color-plum)] font-medium">Default</span>}
               <p className="font-medium text-sm mt-1">{addr.name}</p>
               <p className="text-sm text-[var(--color-warm-grey)]">{addr.line1}{addr.line2 ? `, ${addr.line2}` : ""}</p>
-              <p className="text-sm text-[var(--color-warm-grey)]">{addr.city}, {addr.state} – {addr.pincode}</p>
+              <p className="text-sm text-[var(--color-warm-grey)]">{addr.city}, {addr.state}, {addr.pincode}</p>
               <p className="text-sm text-[var(--color-warm-grey)]">{addr.phone}</p>
             </div>
           ))}

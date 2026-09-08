@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full min-h-[90dvh] flex items-center overflow-hidden bg-[var(--color-plum-dark)]">
+    <section className="relative w-full min-h-[70vh] flex items-center overflow-hidden bg-[var(--color-plum-dark)]">
       {/* Background image */}
       <Image
         src="https://images.unsplash.com/photo-1573408301185-9519f94c5eb8?w=1600&q=80&auto=format&fit=crop"
@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="relative z-10 max-w-[var(--container-max)] mx-auto px-6 md:px-12 py-24 md:py-32 w-full">
         <div className="max-w-2xl">
           {/* Eyebrow */}
-          <p className="text-xs tracking-[0.3em] text-white/50 uppercase mb-6">
+          <p className="text-xs tracking-[0.3em] text-white/80 uppercase mb-6">
             New Season · New You
           </p>
 

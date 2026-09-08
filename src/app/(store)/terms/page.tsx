@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 
 export const metadata: Metadata = { title: "Terms & Conditions | AVIRA" };
@@ -26,7 +26,7 @@ export default function TermsPage() {
         </section>
         <section>
           <h2 className="font-medium mb-2">Intellectual Property</h2>
-          <p>All content on this website — including images, text, and design — is the intellectual property of AVIRA and may not be reproduced without written permission.</p>
+          <p>All content on this website, including images, text, and design, is the intellectual property of AVIRA and may not be reproduced without written permission.</p>
         </section>
         <section>
           <h2 className="font-medium mb-2">Limitation of Liability</h2>

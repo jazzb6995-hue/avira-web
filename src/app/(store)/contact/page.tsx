@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { MotifDivider } from "@/components/ui/AviraMotif";
@@ -64,7 +64,7 @@ export default function ContactPage() {
             <div>
               <p className="text-sm font-medium mb-1">Response Time</p>
               <p className="text-sm text-[var(--color-warm-grey)]">Within 24 hours</p>
-              <p className="text-xs text-[var(--color-warm-grey)]">Mon – Sat, 10am – 6pm IST</p>
+              <p className="text-xs text-[var(--color-warm-grey)]">Mon to Sat, 10am to 6pm IST</p>
             </div>
           </div>
         </div>

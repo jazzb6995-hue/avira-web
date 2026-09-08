@@ -112,7 +112,7 @@ export default async function OrderConfirmationPage({ params }: Props) {
             {shippingAddr.line2 ? `, ${shippingAddr.line2}` : ""}
           </p>
           <p className="text-sm text-[var(--color-warm-grey)]">
-            {shippingAddr.city}, {shippingAddr.state} – {shippingAddr.pincode}
+            {shippingAddr.city}, {shippingAddr.state}, {shippingAddr.pincode}
           </p>
         </div>
       )}

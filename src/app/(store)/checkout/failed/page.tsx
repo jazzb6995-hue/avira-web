@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { XCircle } from "lucide-react";
@@ -14,7 +14,7 @@ export default function CheckoutFailedPage() {
       <MotifDivider className="mb-6 max-w-xs mx-auto" />
       <h1 className="font-[var(--font-display)] text-3xl mb-3">Payment Unsuccessful</h1>
       <p className="text-[var(--color-warm-grey)] text-sm mb-8">
-        Something went wrong and your payment could not be processed. Your cart is intact — please try again.
+        Something went wrong and your payment could not be processed. Your cart is intact, please try again.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link href="/cart">

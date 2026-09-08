@@ -13,8 +13,8 @@
   --color-blush:          #F0DDD5;
   --color-blush-light:    #FAF0ED;
   --color-champagne:      #E8D5B7;
-  --color-warm-grey:      #9B8F89;
-  --color-warm-grey-light:#C9C0BB;
+  --color-warm-grey:      #6E6460;
+  --color-warm-grey-light:#A89F9A;
   --color-charcoal:       #2C2521;
   --color-charcoal-light: #4A3F3B;
   --color-rose-gold:      #C9956C;
@@ -66,8 +66,8 @@ body {
   background-color: var(--color-ivory);
   color: var(--color-charcoal);
   font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.65;
   min-height: 100dvh;
 }
 

@@ -37,7 +37,7 @@ const footerLinks = {
     { label: "AVIRA Story", href: "/about#story" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms" },
-    { label: "No Return Policy", href: "/refund-policy" },
+    { label: "No Return Policy", href: "/no-return-policy" },
   ],
 };
 
@@ -67,11 +67,11 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="max-w-[var(--container-max)] mx-auto px-4 md:px-8 py-12 md:py-16">
           <div className="max-w-xl mx-auto text-center">
-            <AviraMotif size={20} className="mx-auto mb-4 text-white/40" />
+            <AviraMotif size={20} className="mx-auto mb-4 text-white/70" />
             <h3 className="font-[var(--font-display)] text-2xl md:text-3xl text-white mb-2">
               Little things, beautifully delivered.
             </h3>
-            <p className="text-sm text-white/60 mb-6">
+            <p className="text-sm text-white/80 mb-6">
               Join the AVIRA family for new arrivals, styling stories and exclusive offers.
             </p>
             {status === "done" ? (
@@ -84,7 +84,7 @@ export function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
                   required
-                  className="flex-1 bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm px-4 py-3 outline-none focus:border-white/60 transition-colors"
+                  className="flex-1 bg-white/10 border border-white/20 text-white placeholder:text-white/70 text-sm px-4 py-3 outline-none focus:border-white/60 transition-colors"
                 />
                 <button
                   type="submit"
@@ -144,7 +144,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.shop.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -158,7 +158,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.help.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -172,7 +172,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.about.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -183,12 +183,12 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/70">
             © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
           <div className="flex items-center gap-3">
             {/* Payment icons */}
-            <span className="text-xs text-white/40">Secure payments via</span>
+            <span className="text-xs text-white/70">Secure payments via</span>
             <div className="flex items-center gap-2">
               {["UPI", "Visa", "MC", "RuPay"].map((p) => (
                 <span key={p} className="text-[10px] border border-white/20 px-2 py-0.5 text-white/50">

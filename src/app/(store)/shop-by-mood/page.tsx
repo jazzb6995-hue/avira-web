@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 
@@ -25,7 +25,7 @@ const MOODS = [
   },
   {
     title: "Office Ready",
-    subtitle: "Professional, polished — the jewellery that closes the deal",
+    subtitle: "Professional, polished, the jewellery that closes the deal",
     tags: ["office"],
     gradient: "from-[#E8D5B7]/50 to-[#FBF7F2]",
     emoji: "💼",
@@ -39,28 +39,28 @@ const MOODS = [
   },
   {
     title: "Festive Season",
-    subtitle: "Celebration-worthy, occasion-perfect — dressed up in gold and colour",
+    subtitle: "Celebration-worthy, occasion-perfect, dressed up in gold and colour",
     tags: ["festive"],
     gradient: "from-[#C9956C]/20 to-[#FBF7F2]",
     emoji: "🪔",
   },
   {
     title: "Weekend Casual",
-    subtitle: "Easy, relaxed, beautiful — jewellery for the days you just be",
+    subtitle: "Easy, relaxed, beautiful, jewellery for the days you just be",
     tags: ["casual"],
     gradient: "from-[#F5EFE7] to-[#FBF7F2]",
     emoji: "☁️",
   },
   {
     title: "Trending Now",
-    subtitle: "What everyone is wearing — the pieces we can barely keep in stock",
+    subtitle: "What everyone is wearing, the pieces we can barely keep in stock",
     tags: ["trending"],
     gradient: "from-[#54283C]/5 to-[#F0DDD5]/50",
     emoji: "🔥",
   },
   {
     title: "Stack & Layer",
-    subtitle: "Made for mixing — bangles, chains, and rings that multiply beautifully",
+    subtitle: "Made for mixing, bangles, chains, and rings that multiply beautifully",
     tags: ["everyday", "minimal"],
     gradient: "from-[#E8D5B7]/40 to-[#FBF7F2]",
     emoji: "🔗",

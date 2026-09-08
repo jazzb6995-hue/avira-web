@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 import { SHIPPING } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
@@ -27,7 +27,7 @@ export default function ShippingPolicyPage() {
         </section>
         <section>
           <h2 className="font-medium mb-2">Packaging</h2>
-          <p>Every AVIRA order is packed with care in our signature gift-ready packaging — perfect to keep or gift. We use minimal, eco-conscious materials wherever possible.</p>
+          <p>Every AVIRA order is packed with care in our signature gift-ready packaging, perfect to keep or gift. We use minimal, eco-conscious materials wherever possible.</p>
         </section>
         <section>
           <h2 className="font-medium mb-2">Delivery Areas</h2>

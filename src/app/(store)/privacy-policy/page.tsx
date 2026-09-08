@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { MotifDivider } from "@/components/ui/AviraMotif";
 
 export const metadata: Metadata = { title: "Privacy Policy | AVIRA" };
@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       <div className="space-y-6 text-sm text-[var(--color-charcoal)] leading-loose">
         <section>
           <h2 className="font-medium mb-2">Information We Collect</h2>
-          <p>We collect information you provide when creating an account, placing an order, or contacting us — including your name, email address, phone number, and delivery address. We also collect anonymous usage data to improve our website.</p>
+          <p>We collect information you provide when creating an account, placing an order, or contacting us, including your name, email address, phone number, and delivery address. We also collect anonymous usage data to improve our website.</p>
         </section>
         <section>
           <h2 className="font-medium mb-2">How We Use Your Information</h2>

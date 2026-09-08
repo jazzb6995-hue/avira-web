@@ -1,4 +1,4 @@
-import { MotifDivider } from "@/components/ui/AviraMotif";
+﻿import { MotifDivider } from "@/components/ui/AviraMotif";
 
 export function PackagingStory() {
   return (
@@ -9,7 +9,7 @@ export function PackagingStory() {
           Beautiful from the moment it arrives.
         </h2>
         <p className="text-[var(--color-warm-grey)] text-sm max-w-md mx-auto leading-relaxed">
-          Every AVIRA piece is thoughtfully packaged — ready to gift or to treasure.
+          Every AVIRA piece is thoughtfully packaged, ready to gift or to treasure.
         </p>
       </div>
 
