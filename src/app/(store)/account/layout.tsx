@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { SignOutButton } from "@/components/account/SignOutButton";
 
 const NAV = [
   { href: "/account", label: "Overview" },
@@ -30,11 +31,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
                 {item.label}
               </Link>
             ))}
-            <form action="/api/auth/signout" method="POST">
-              <button className="w-full text-left py-2 px-3 text-sm text-[var(--color-warm-grey)] hover:text-red-500 transition-colors">
-                Sign Out
-              </button>
-            </form>
+            <SignOutButton />
           </nav>
         </aside>
         <main className="flex-1 min-w-0">{children}</main>
