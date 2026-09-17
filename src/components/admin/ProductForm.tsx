@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
+import { ImageUploader } from "./ImageUploader";
 
 const schema = z.object({
   title: z.string().min(1, "Title required"),
@@ -25,7 +26,6 @@ const schema = z.object({
   isNewArrival: z.boolean(),
   isBestSeller: z.boolean(),
   isFeatured: z.boolean(),
-  mediaUrls: z.string().optional(),
 });
 type FormData = z.infer<typeof schema>;
 
@@ -38,6 +38,7 @@ interface Props {
 export function ProductForm({ categories, tags, initialData }: Props) {
   const router = useRouter();
   const [selectedTags, setSelectedTags] = useState<string[]>(initialData?.tags?.map((t: any) => t.tagId) ?? []);
+  const [mediaUrls, setMediaUrls] = useState<string[]>(initialData?.media?.map((m: any) => m.url) ?? []);
   const [error, setError] = useState<string | null>(null);
 
   const { register, handleSubmit, setValue, watch, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -60,7 +61,6 @@ export function ProductForm({ categories, tags, initialData }: Props) {
       isNewArrival: initialData?.isNewArrival ?? false,
       isBestSeller: initialData?.isBestSeller ?? false,
       isFeatured: initialData?.isFeatured ?? false,
-      mediaUrls: initialData?.media?.map((m: any) => m.url).join("\n") ?? "",
     },
   });
 
@@ -74,7 +74,7 @@ export function ProductForm({ categories, tags, initialData }: Props) {
       const payload = {
         ...data,
         tags: selectedTags,
-        mediaUrls: data.mediaUrls?.split("\n").map((u) => u.trim()).filter(Boolean) ?? [],
+        mediaUrls,
       };
       const url = initialData ? `/api/admin/products/${initialData.id}` : "/api/admin/products";
       const method = initialData ? "PUT" : "POST";
@@ -185,13 +185,8 @@ export function ProductForm({ categories, tags, initialData }: Props) {
       </div>
 
       <div className="bg-white p-5 shadow-sm space-y-4">
-        <h2 className="font-medium text-sm">Media</h2>
-        <div>
-          <label className="label-admin">Image URLs (one per line)</label>
-          <textarea {...register("mediaUrls")} rows={4} className="input-admin font-mono text-xs"
-            placeholder="https://cdn.example.com/image1.jpg&#10;https://cdn.example.com/image2.jpg" />
-          <p className="text-xs text-[var(--color-warm-grey)] mt-1">First image is the primary product image.</p>
-        </div>
+        <h2 className="font-medium text-sm">Photos</h2>
+        <ImageUploader value={mediaUrls} onChange={setMediaUrls} max={4} />
       </div>
 
       <div className="bg-white p-5 shadow-sm space-y-4">
