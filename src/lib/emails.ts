@@ -52,10 +52,10 @@ export async function sendWelcomeEmail(to: string, name: string) {
   const html = baseLayout(`
     <h2 style="margin:0 0 12px;font-size:26px;color:#2C2521;">Welcome to AVIRA, ${name || "beautiful"}.</h2>
     <p style="color:#9B8F89;font-size:15px;line-height:1.7;margin:0 0 24px;">
-      We're so glad you're here. AVIRA was made for moments — for the little things that make every day more beautiful.
+      We're so glad you're here. AVIRA was made for moments: for the little things that make every day more beautiful.
     </p>
     <p style="color:#9B8F89;font-size:15px;line-height:1.7;margin:0 0 32px;">
-      As a welcome gift, your first order gets <strong style="color:#54283C;">10% off</strong> — automatically applied at checkout.
+      As a welcome gift, your first order gets <strong style="color:#54283C;">10% off</strong>, automatically applied at checkout.
     </p>
     <div style="text-align:center;">${btn("Start Shopping", APP_URL)}</div>
   `);
@@ -98,7 +98,7 @@ export async function sendOrderConfirmationEmail(to: string, order: {
     <div style="text-align:center;">${btn("Track Your Order", `${APP_URL}/track-order`)}</div>
   `);
 
-  await getResend().emails.send({ from: FROM, to, subject: `Order Confirmed — #${order.orderNumber} | AVIRA`, html });
+  await getResend().emails.send({ from: FROM, to, subject: `Order Confirmed: #${order.orderNumber} | AVIRA`, html });
 }
 
 export async function sendShippedEmail(to: string, data: {
@@ -128,7 +128,7 @@ export async function sendShippedEmail(to: string, data: {
     </div>
   `);
 
-  await getResend().emails.send({ from: FROM, to, subject: `Your AVIRA order is shipped — #${data.orderNumber}`, html });
+  await getResend().emails.send({ from: FROM, to, subject: `Your AVIRA order is shipped: #${data.orderNumber}`, html });
 }
 
 export async function sendAbandonedCartEmail(to: string, data: {
@@ -139,12 +139,12 @@ export async function sendAbandonedCartEmail(to: string, data: {
   const html = baseLayout(`
     <h2 style="margin:0 0 12px;font-size:22px;color:#2C2521;">You left something beautiful behind</h2>
     <p style="color:#4A3F3B;font-size:15px;line-height:1.7;margin:0 0 24px;">
-      Hi ${data.firstName}, your cart is waiting. These pieces are still available — for now.
+      Hi ${data.firstName}, your cart is waiting. These pieces are still available, for now.
     </p>
     <div style="margin-bottom:24px;">
       ${data.items.slice(0, 3).map((item) => `
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;border-bottom:1px solid #F0DDD5;padding-bottom:12px;">
-          <p style="margin:0;font-size:14px;color:#2C2521;">${item.title} — ₹${item.price.toFixed(2)}</p>
+          <p style="margin:0;font-size:14px;color:#2C2521;">${item.title}, ₹${item.price.toFixed(2)}</p>
         </div>
       `).join("")}
     </div>
@@ -152,5 +152,5 @@ export async function sendAbandonedCartEmail(to: string, data: {
     <div style="text-align:center;">${btn("Complete Your Order", `${APP_URL}/checkout`)}</div>
   `);
 
-  await getResend().emails.send({ from: FROM, to, subject: "Your cart misses you — AVIRA", html });
+  await getResend().emails.send({ from: FROM, to, subject: "Your cart misses you, AVIRA", html });
 }

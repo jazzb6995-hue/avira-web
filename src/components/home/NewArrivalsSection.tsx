@@ -37,7 +37,7 @@ export async function NewArrivalsSection() {
       : PLACEHOLDER_PRODUCTS;
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-[var(--container-max)] mx-auto">
+    <section className="pt-16 md:pt-24 pb-8 md:pb-10 px-4 md:px-8 max-w-[var(--container-max)] mx-auto">
       <div className="text-center mb-12">
         <MotifDivider className="mb-6 max-w-xs mx-auto" />
         <p className="text-xs tracking-[0.3em] text-[var(--color-warm-grey)] uppercase mb-3">

@@ -140,7 +140,7 @@ export function ReviewsPanel({ reviews, avgRating, productId }: Props) {
               {review.title && <p className="font-medium text-sm mb-1">{review.title}</p>}
               <p className="text-sm text-[var(--color-warm-grey)] leading-relaxed">{review.body}</p>
               <p className="text-xs text-[var(--color-charcoal)] font-medium mt-2">
-                — {review.guestName ?? review.user?.name ?? "Customer"}
+                {review.guestName ?? review.user?.name ?? "Customer"}
               </p>
             </div>
           ))}

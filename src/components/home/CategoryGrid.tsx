@@ -11,7 +11,7 @@ const CATEGORIES = [
 
 export function CategoryGrid() {
   return (
-    <section className="py-12 md:py-16 px-4 md:px-8 max-w-[var(--container-max)] mx-auto">
+    <section className="pt-8 md:pt-10 pb-12 md:pb-16 px-4 md:px-8 max-w-[var(--container-max)] mx-auto">
       <div className="text-center mb-8">
         <p className="text-xs tracking-[0.3em] text-[var(--color-warm-grey)] uppercase mb-3">
           Find Your Piece

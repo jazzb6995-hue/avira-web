@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const TICKER_ITEMS = [
+const TICKER_ITEMS_BASE = [
   "Free shipping on orders above ₹500",
   "Handcrafted with love in India",
   "New arrivals every week",
@@ -10,14 +10,11 @@ const TICKER_ITEMS = [
   "100% authentic materials",
   "Easy exchanges within 7 days",
   "Secure payments via UPI, Visa, RuPay",
-  "Free shipping on orders above ₹500",
-  "Handcrafted with love in India",
-  "New arrivals every week",
-  "Gift wrapping available on all orders",
-  "100% authentic materials",
-  "Easy exchanges within 7 days",
-  "Secure payments via UPI, Visa, RuPay",
+  "Pan-India delivery in 4-7 business days",
+  "Dedicated support on WhatsApp",
 ];
+
+const TICKER_ITEMS = [...TICKER_ITEMS_BASE, ...TICKER_ITEMS_BASE];
 
 export function TickerBanner() {
   return (

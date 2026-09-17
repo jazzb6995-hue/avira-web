@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, CATEGORY_LINKS } from "@/lib/constants";
 import { useCartStore } from "@/store/cart";
 import { useWishlistStore } from "@/store/wishlist";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [categoryOpen, setCategoryOpen] = useState(false);
+  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
   const pathname = usePathname();
   const itemCount = useCartStore((s) => s.itemCount());
   const wishlistCount = useWishlistStore((s) => s.items.length);
@@ -56,20 +58,57 @@ export function Header() {
           <div className="hidden md:flex items-center justify-between h-16">
             {/* Left Nav */}
             <nav className="flex items-center gap-6 flex-1">
-              {NAV_LINKS.slice(0, 5).map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "text-xs tracking-widest uppercase font-medium transition-colors duration-150",
-                    pathname === link.href
-                      ? "text-[var(--color-plum)]"
-                      : "text-[var(--color-charcoal)] hover:text-[var(--color-plum)]"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {NAV_LINKS.slice(0, 2).map((link) =>
+                link.label === "Category" ? (
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setCategoryOpen(true)}
+                    onMouseLeave={() => setCategoryOpen(false)}
+                  >
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "flex items-center gap-1 text-xs tracking-widest uppercase font-medium transition-colors duration-150",
+                        pathname.startsWith("/category")
+                          ? "text-[var(--color-plum)]"
+                          : "text-[var(--color-charcoal)] hover:text-[var(--color-plum)]"
+                      )}
+                    >
+                      {link.label}
+                      <ChevronDown size={12} />
+                    </Link>
+                    {categoryOpen && (
+                      <div className="absolute top-full left-0 pt-3">
+                        <div className="bg-white shadow-[var(--shadow-card)] border border-[var(--color-border)] py-2 min-w-[180px]">
+                          {CATEGORY_LINKS.map((cat) => (
+                            <Link
+                              key={cat.href}
+                              href={cat.href}
+                              className="block px-4 py-2 text-xs tracking-widest uppercase font-medium text-[var(--color-charcoal)] hover:text-[var(--color-plum)] hover:bg-[var(--color-ivory)] transition-colors"
+                            >
+                              {cat.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "text-xs tracking-widest uppercase font-medium transition-colors duration-150",
+                      pathname === link.href
+                        ? "text-[var(--color-plum)]"
+                        : "text-[var(--color-charcoal)] hover:text-[var(--color-plum)]"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </nav>
 
             {/* Logo */}
@@ -90,7 +129,7 @@ export function Header() {
 
             {/* Right Nav */}
             <nav className="flex items-center gap-6 flex-1 justify-end">
-              {NAV_LINKS.slice(5).map((link) => (
+              {NAV_LINKS.slice(2).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -249,15 +288,43 @@ export function Header() {
           </div>
 
           <div className="flex-1 overflow-y-auto py-6 px-5">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-center py-3 text-sm tracking-widest uppercase font-medium border-b border-[var(--color-border)] last:border-0 hover:text-[var(--color-plum)] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.label === "Category" ? (
+                <div key={link.href} className="border-b border-[var(--color-border)]">
+                  <button
+                    onClick={() => setMobileCategoryOpen(!mobileCategoryOpen)}
+                    className="flex items-center justify-between w-full py-3 text-sm tracking-widest uppercase font-medium hover:text-[var(--color-plum)] transition-colors"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={16}
+                      className={cn("transition-transform", mobileCategoryOpen && "rotate-180")}
+                    />
+                  </button>
+                  {mobileCategoryOpen && (
+                    <div className="pb-3 pl-4">
+                      {CATEGORY_LINKS.map((cat) => (
+                        <Link
+                          key={cat.href}
+                          href={cat.href}
+                          className="block py-2 text-sm tracking-wide uppercase font-medium text-[var(--color-warm-grey)] hover:text-[var(--color-plum)] transition-colors"
+                        >
+                          {cat.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center py-3 text-sm tracking-widest uppercase font-medium border-b border-[var(--color-border)] last:border-0 hover:text-[var(--color-plum)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <div className="border-t border-[var(--color-border)] p-5 flex gap-4">

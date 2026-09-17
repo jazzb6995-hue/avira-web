@@ -19,15 +19,17 @@ export const EXIT_INTENT_DISCOUNT_PCT = 10;
 export const ABANDONED_CART_DISCOUNT_PCT = 10;
 export const ABANDONED_CART_MIN_ELIGIBLE = 1000;
 
-export const NAV_LINKS = [
-  { label: "New Arrivals", href: "/new-arrivals" },
+export const CATEGORY_LINKS = [
   { label: "Earrings", href: "/category/earrings" },
   { label: "Bracelets", href: "/category/bracelets" },
   { label: "Necklaces", href: "/category/necklaces" },
   { label: "Rings", href: "/category/rings" },
   { label: "Sets", href: "/category/sets" },
-  { label: "Best Sellers", href: "/best-sellers" },
-  { label: "Collections", href: "/collections" },
+] as const;
+
+export const NAV_LINKS = [
+  { label: "New Arrivals", href: "/new-arrivals" },
+  { label: "Category", href: "/category/earrings" },
   { label: "AVIRA Edit", href: "/edit" },
   { label: "About AVIRA", href: "/about" },
 ] as const;
