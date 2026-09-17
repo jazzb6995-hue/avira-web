@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { useCartStore } from "@/store/cart";
 import { Button } from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils";
@@ -34,6 +35,7 @@ const INDIAN_STATES = [
 
 export default function CheckoutPage() {
   const router = useRouter();
+  const { data: session, status: sessionStatus } = useSession();
   const { items, subtotal, couponCode, couponDiscount, clearCart } = useCartStore();
   const [address, setAddress] = useState<Address>(EMPTY_ADDRESS);
   const [email, setEmail] = useState("");
@@ -48,7 +50,18 @@ export default function CheckoutPage() {
     if (items.length === 0) router.replace("/cart");
   }, [items.length, router]);
 
+  useEffect(() => {
+    if (sessionStatus === "unauthenticated") {
+      router.replace("/login?callbackUrl=/checkout");
+    }
+  }, [sessionStatus, router]);
+
+  useEffect(() => {
+    if (session?.user?.email) setEmail(session.user.email);
+  }, [session?.user?.email]);
+
   if (items.length === 0) return null;
+  if (sessionStatus !== "authenticated") return null;
 
   const validate = () => {
     const errs: typeof errors = {};
@@ -160,9 +173,9 @@ export default function CheckoutPage() {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                readOnly
                 placeholder="your@email.com"
-                className="w-full border border-[var(--color-border)] px-3 py-2.5 text-sm outline-none focus:border-[var(--color-plum)] transition-colors"
+                className="w-full border border-[var(--color-border)] px-3 py-2.5 text-sm outline-none bg-[var(--color-cream)] text-[var(--color-warm-grey)]"
               />
               {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
             </div>

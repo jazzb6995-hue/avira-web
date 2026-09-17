@@ -15,6 +15,7 @@ function RegisterForm() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState("");
@@ -32,13 +33,14 @@ function RegisterForm() {
     setError("");
 
     if (password.length < 8) { setError("Password must be at least 8 characters."); return; }
+    if (!/^\d{10}$/.test(phone)) { setError("Enter a valid 10-digit mobile number."); return; }
 
     setLoading(true);
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, phone, password }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -95,6 +97,13 @@ function RegisterForm() {
         <div>
           <label className="text-xs uppercase tracking-wider text-[var(--color-warm-grey)] block mb-1">Email</label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email"
+            className="w-full border border-[var(--color-border)] px-3 py-2.5 text-sm outline-none focus:border-[var(--color-plum)] transition-colors" />
+        </div>
+        <div>
+          <label className="text-xs uppercase tracking-wider text-[var(--color-warm-grey)] block mb-1">Mobile Number</label>
+          <input type="tel" inputMode="numeric" value={phone}
+            onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+            required autoComplete="tel" placeholder="10-digit mobile"
             className="w-full border border-[var(--color-border)] px-3 py-2.5 text-sm outline-none focus:border-[var(--color-plum)] transition-colors" />
         </div>
         <div>

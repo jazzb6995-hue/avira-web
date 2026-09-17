@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 const schema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email(),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10-digit mobile number"),
   password: z.string().min(8).max(72),
 });
 
@@ -20,11 +21,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: parsed.error.issues[0]?.message ?? "Invalid data." }, { status: 400 });
   }
 
-  const { name, email, password } = parsed.data;
+  const { name, email, phone, password } = parsed.data;
 
-  const existing = await db.user.findUnique({ where: { email } });
+  const existing = await db.user.findFirst({ where: { OR: [{ email }, { phone }] } });
   if (existing) {
-    return NextResponse.json({ message: "An account with this email already exists." }, { status: 409 });
+    const message = existing.email === email
+      ? "An account with this email already exists."
+      : "An account with this mobile number already exists.";
+    return NextResponse.json({ message }, { status: 409 });
   }
 
   const passwordHash = await bcrypt.hash(password, 12);
@@ -33,6 +37,7 @@ export async function POST(req: NextRequest) {
     data: {
       name,
       email,
+      phone,
       passwordHash,
       profile: { create: {} },
     },

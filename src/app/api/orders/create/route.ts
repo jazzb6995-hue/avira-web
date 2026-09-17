@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { z } from "zod";
 import Razorpay from "razorpay";
 import { generateOrderNumber } from "@/lib/utils";
+import { auth } from "@/auth";
 
 function getRazorpay() {
   return new Razorpay({
@@ -41,6 +42,11 @@ const schema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ message: "Please sign in to place an order." }, { status: 401 });
+  }
+
   let body: unknown;
   try { body = await req.json(); } catch {
     return NextResponse.json({ message: "Invalid request." }, { status: 400 });
@@ -65,16 +71,9 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    // Find or create user by email
-    let user = await db.user.findUnique({ where: { email } });
+    const user = await db.user.findUnique({ where: { id: session.user.id } });
     if (!user) {
-      user = await db.user.create({
-        data: {
-          email,
-          name: address.name,
-          profile: { create: {} },
-        },
-      });
+      return NextResponse.json({ message: "Account not found. Please sign in again." }, { status: 401 });
     }
 
     // Fetch current cost prices from DB for snapshot
